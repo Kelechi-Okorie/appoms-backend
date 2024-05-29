@@ -21,6 +21,7 @@ module.exports = (sequelize, DataTypes) => {
   Service.init(attributes, {
     sequelize,
     modelName: 'Service',
+    timestamps: false
   });
   return Service;
 };

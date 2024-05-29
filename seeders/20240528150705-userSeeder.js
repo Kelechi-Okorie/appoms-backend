@@ -21,9 +21,9 @@ module.exports = {
 
     
     
-    for (let i = 1; i <= numUsers; i++) {
-      const firstName = faker.name.firstName();
-      const lastName = faker.name.lastName();
+    for (let i = 0; i < numUsers; i++) {
+      const firstName = faker.person.firstName();
+      const lastName = faker.person.lastName();
 
       let isAdmin = false;
 
@@ -38,10 +38,10 @@ module.exports = {
         lastName: lastName,
         email: email,
         password: bcrypt.hashSync(email, bcrypt.genSaltSync(12)),
-        phone: faker.phone.phoneNumber(),
+        phone: faker.phone.number(),
         dob: faker.date.past(),
-        address: `${faker.address.streetAddress()}, ${faker.address.state()}, ${faker.address.cityName()}`,
-        officeAddress: `${faker.address.streetAddress()}, ${faker.address.state()}, ${faker.address.cityName()}`,
+        address: `${faker.location.street()}, ${faker.location.state()}, ${faker.location.city()}`,
+        officeAddress: `${faker.location.street()}, ${faker.location.state()}, ${faker.location.city()}`,
         isAdmin: isAdmin,
         config: '{"hasChangedPassword": false}',
         createdAt: new Date(),
