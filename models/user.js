@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
       this.belongsToMany(models.Service, { through: models.UserServiceJunctionTable});
       this.hasMany(models.Project, {foreignKey: 'ownerId', as: 'owner'});
       this.hasMany(models.Project, {foreignKey: 'clientId', as: 'client'});
-      this.hasMany(models.Review, {foreignKey: 'userId', as: 'reviews'});
+      this.hasMany(models.Review, {foreignKey: 'userId', as: 'review'});
       this.hasMany(models.Review, {foreignKey: 'reviewerId', as: 'reviewer'});
       this.hasMany(models.Message, {foreignKey: 'senderId', as: 'sender'});
       this.hasMany(models.Message, {foreignKey: 'receiverId', as: 'reciever'});

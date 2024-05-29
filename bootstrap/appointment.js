@@ -29,10 +29,10 @@ module.exports = (Sequelize) => {
       references: { model: 'users', key: 'id' }
     },
     startTime: {
-      type: DataTypes.DATETIME
+      type: DataTypes.DATE
     },
     endTime: {
-      type: DataTypes.DATETIME
+      type: DataTypes.DATE
     },
     createdAt: {
       type: DataTypes.DATE,
