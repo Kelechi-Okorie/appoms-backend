@@ -14,6 +14,15 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsToMany(models.Service, { through: models.UserServiceJunctionTable});
+      this.hasMany(models.Project, {foreignKey: 'ownerId', as: 'owner'});
+      this.hasMany(models.Project, {foreignKey: 'clientId', as: 'client'});
+      this.hasMany(models.Review, {foreignKey: 'userId', as: 'reviews'});
+      this.hasMany(models.Review, {foreignKey: 'reviewerId', as: 'reviewer'});
+      this.hasMany(models.Message, {foreignKey: 'senderId', as: 'sender'});
+      this.hasMany(models.Message, {foreignKey: 'receiverId', as: 'reciever'});
+      this.hasMany(models.Appointment, { foreignKey: 'userId', as: 'appointment' });
+      this.hasMany(models.Appointment, { foreignKey: 'clientId', as: 'client' });
     }
   }
   User.init(userAttributes, {

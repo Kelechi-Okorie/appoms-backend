@@ -3,10 +3,10 @@ const {
   Model, Sequelize
 } = require('sequelize');
 
-const attributes = require('../bootstrap/message')(Sequelize);
+const attributes = require('../bootstrap/category')(Sequelize);
 
 module.exports = (sequelize, DataTypes) => {
-  class Message extends Model {
+  class Category extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -14,13 +14,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.User, {foreignKey: 'senderId', as: 'sender'});
-      this.belongsTo(models.User, {foreignKey: 'receiverId', as: 'receiver'});
+      this.belongsToMany(models.Service, {through: models.ServiceCategoryJunctionTable});
     }
   }
-  Message.init(attributes, {
+  Category.init(attributes, {
     sequelize,
-    modelName: 'Message',
+    modelName: 'Category',
   });
-  return Message;
+  return Category;
 };

@@ -3,10 +3,10 @@ const {
   Model, Sequelize
 } = require('sequelize');
 
-const attributes = require('../bootstrap/message')(Sequelize);
+const attributes = require('../bootstrap/appointment')(Sequelize);
 
 module.exports = (sequelize, DataTypes) => {
-  class Message extends Model {
+  class Appointment extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -14,13 +14,14 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsTo(models.User, {foreignKey: 'senderId', as: 'sender'});
-      this.belongsTo(models.User, {foreignKey: 'receiverId', as: 'receiver'});
+      this.belongsTo(models.User, {foreignKey: 'userId', as: 'appointment'});
+      this.belongsTo(models.User, { foreignKey: 'clientId', as: 'client'});
+      this.belongsTo(models.Project);
     }
   }
-  Message.init(attributes, {
+  Appointment.init(attributes, {
     sequelize,
-    modelName: 'Message',
+    modelName: 'Appointment',
   });
-  return Message;
+  return Appointment;
 };
