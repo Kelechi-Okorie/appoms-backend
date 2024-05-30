@@ -12,6 +12,15 @@ module.exports = {
      *   isBetaMember: false
      * }], {});
     */
+
+    await queryInterface.bulkInsert('messages', [
+      {
+        content: 'This is the first message',
+        projectId: 1,
+        senderId: 1,
+        recieverId: 2,
+      }
+    ]);
   },
 
   async down (queryInterface, Sequelize) {
