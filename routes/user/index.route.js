@@ -6,7 +6,7 @@ const { getAllUsers } = require("../../controllers/user/index.controller");
 //route to fetch user profile details
 /**
  * @swagger
- * /api/v1/user:
+ * /api/v1/users:
  *  get:
  *    summary: User profile Details
  *    security:

@@ -1,26 +1,23 @@
-
+const { sequelize, User } = require('../../models');
+const { sendResponse } = require('../../filters/sendResponse.filter');
 
 const getAllUsers = async (req, res) => {
-  // try {
-  //   const user = req.user;
-  //   res.status(200).json({
-  //     status: "success",
-  //     data: user,
-  //   });
-  // } catch (error) {
-  //   res.status(400).json({
-  //     status: "error",
-  //     error: error.message,
-  //   });
-  // }
+  try {
+    const result = await sequelize.transaction(async (t) => {
+      const users = await User.findAll({ transaction: t });
+      
+      const payload = { status: 200, message: "Users fetched successfully", data: { users }, res };
+      return sendResponse(payload);
+    });
 
-  res.status(200).json({
-    status: "success",
-    data: {name: 'name'},
-    message: 'All users fetched successfully'
-  });
+  } catch(err) {
+    console.log(err)
+    const payload = { status: 500, message: "Something wrong happened", data: null, res };
+    return sendResponse(payload);
+  }
 }
 
 module.exports = {
   getAllUsers
 };
+;
