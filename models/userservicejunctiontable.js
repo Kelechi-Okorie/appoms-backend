@@ -3,7 +3,7 @@ const {
   Model, Sequelize
 } = require('sequelize');
 
-const attributes = require('../bootstrap/userservicejunctiontable')(Sequelize);
+const attributes = require('../bootstrap/userservice')(Sequelize);
 
 module.exports = (sequelize, DataTypes) => {
   class UserServiceJunctionTable extends Model {

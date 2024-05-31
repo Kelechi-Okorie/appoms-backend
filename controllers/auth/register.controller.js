@@ -23,31 +23,35 @@ const registerUser = async (req, res) => {
       });
 
       if (isNewUser) {
-        jwt.sign(
+        // jwt.sign(
+        //   { user },
+        //   process.env.JWT_TOKEN,
+        //   { expiresIn: "1d" },
+        //   async (err, token) => {
+        //     if (err) throw err;
+
+        //     const payload = { status: 200, message: "User registered successfully", data: { user, token }, res };
+        //     return sendResponse(payload);
+        //   }
+        // );
+
+        const token = jwt.sign(
           { user },
           process.env.JWT_TOKEN,
-          { expiresIn: "1d" },
-          async (err, token) => {
-            if (err) throw err;
-
-            const payload = { status: 200, message: "User registered successfully", data: { user, token }, res };
-            sendResponse(payload);
-            return;
-
-          }
+          { expiresIn: "10d" },
         );
+
+        const payload = { status: 200, message: "User registered successfully", data: { user, token }, res };
+        return sendResponse(payload);  
       }
 
       const payload = { status: 409, message: "A user already exists with this email", data: null, res };
-      sendResponse(payload);
-      return;
+      return sendResponse(payload);
     });
 
   } catch (err) {
     const payload = { status: 401, message: "Server error", data: null, res };
-    sendResponse(payload);
-    return;
-
+    return sendResponse(payload);
   }
 };
 
