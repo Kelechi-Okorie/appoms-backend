@@ -22,6 +22,6 @@ const { getAllProjects } = require("../../controllers/project/index.controller")
  *      '500':
  *        description: Unable to fetch project details
  */
-router.get("/", getAllProjects);
+router.get("/project", getAllProjects);
 
 module.exports = router

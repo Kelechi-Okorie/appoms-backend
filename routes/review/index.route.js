@@ -22,6 +22,6 @@ const { getAllReviews } = require("../../controllers/review/index.controller");
  *      '500':
  *        description: Unable to fetch user reviews
  */
-router.get("/", getAllReviews);
+router.get("/review", getAllReviews);
 
 module.exports = router

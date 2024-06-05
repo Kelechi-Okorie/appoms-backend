@@ -22,6 +22,6 @@ const { getAllMessages } = require("../../controllers/message/index.controller")
  *      '500':
  *        description: Unable to fetch user messagess
  */
-router.get("/", getAllMessages);
+router.get("/message", getAllMessages);
 
 module.exports = router
