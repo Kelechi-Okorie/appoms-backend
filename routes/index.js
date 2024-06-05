@@ -5,8 +5,10 @@ const profileRoute = require('./user/profile.route');
 const userIndex = require('./user/index.route');
 const registerRoute = require('./auth/register.route');
 const loginRoute = require('./auth/login.route');
+const utilsRoute = require('./utils.js');
 
 router.use('/auth', registerRoute, loginRoute);
 router.use('/users', userIndex, profileRoute);
+router.use('/', utilsRoute)
 
 module.exports = router;
