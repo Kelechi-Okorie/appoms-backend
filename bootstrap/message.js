@@ -15,15 +15,15 @@ module.exports = (Sequelize) => {
     },
     senderId: {
       type: DataTypes.INTEGER,
-      references: {model: 'users', key: 'id'}
+      references: {model: 'Users', key: 'id'}
     },
     recieverId: {
       type: DataTypes.INTEGER,
-      references: { model: 'users', key: 'id' }
+      references: { model: 'Users', key: 'id' }
     },
     projectId: {
       type: DataTypes.INTEGER,
-      references: { model: 'projects', key: 'id' }
+      references: { model: 'Projects', key: 'id' }
     },
     createdAt: {
       type: DataTypes.DATE,

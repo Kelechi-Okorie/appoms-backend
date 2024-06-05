@@ -1,7 +1,7 @@
 {
   "development": {
-    "username": "root",
-    "password": "root",
+    "username": "appoms_dev",
+    "password": "appoms_dev_pwd",
     "database": "appoms_db",
     "host": "127.0.0.1",
     "dialect": "mysql"

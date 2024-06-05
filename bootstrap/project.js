@@ -24,15 +24,15 @@ module.exports = (Sequelize) => {
     },
     serviceId: {
       type: DataTypes.INTEGER,
-      references: {model: 'services', key: 'id'}
+      references: {model: 'Services', key: 'id'}
     },
     ownerId: {
       type: DataTypes.INTEGER,
-      references: { model: 'users', key: 'id' }
+      references: { model: 'Users', key: 'id' }
     },
     clientId: {
       type: DataTypes.INTEGER,
-      references: { model: 'users', key: 'id' }
+      references: { model: 'Users', key: 'id' }
     },
     isOpen: {
       type: DataTypes.BOOLEAN,
