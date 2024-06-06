@@ -1,7 +1,7 @@
 const express = require("express");
 var router = express.Router();
 
-const { getAllCategories, getCategory, createNewCategory } = require("../../controllers/category/index.controller");
+const { getAllCategories, getCategory, createNewCategory, getCategoryServices } = require("../../controllers/category/index.controller");
 
 //route to fetch categorid profile details
 /**
@@ -23,27 +23,6 @@ const { getAllCategories, getCategory, createNewCategory } = require("../../cont
  *        description: Unable to fetch category profile details
  */
 router.get("/", getAllCategories);
-
-//route to fetch category details
-/**
- * @swagger
- * /api/v1/categories/{id}:
- *  get:
- *    summary: Category details
- *    security:
- *      - Authorization: []
- *    description: Get Category profile details
- *    tags:
- *      - Categories
- *    responses:
- *      '200':
- *        description: category details fetched
- *      '404':
- *        description: category not found
- *      '500':
- *        description: Unable to fetch category profile details
- */
-router.get("/:id", getCategory);
 
 // Route to create new category
 /**
@@ -78,5 +57,48 @@ router.get("/:id", getCategory);
 *        description: Unable to create category
 */
 router.post('/new', createNewCategory);
+
+//route to fetch category details
+/**
+ * @swagger
+ * /api/v1/categories/{id}:
+ *  get:
+ *    summary: Category details
+ *    security:
+ *      - Authorization: []
+ *    description: Get Category profile details
+ *    tags:
+ *      - Categories
+ *    responses:
+ *      '200':
+ *        description: category details fetched
+ *      '404':
+ *        description: category not found
+ *      '500':
+ *        description: Unable to fetch category profile details
+ */
+router.get("/:id", getCategory);
+
+//route to fetch category details
+/**
+ * @swagger
+ * /api/v1/categories/{id}:
+ *  get:
+ *    summary: Category details
+ *    security:
+ *      - Authorization: []
+ *    description: Get Category profile details
+ *    tags:
+ *      - Categories
+ *    responses:
+ *      '200':
+ *        description: category details fetched
+ *      '404':
+ *        description: category not found
+ *      '500':
+ *        description: Unable to fetch category profile details
+ */
+router.get("/:id/services", getCategoryServices);
+
 
 module.exports = router
