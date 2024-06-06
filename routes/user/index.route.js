@@ -8,19 +8,19 @@ const { getAllUsers } = require("../../controllers/user/index.controller");
  * @swagger
  * /api/v1/users:
  *  get:
- *    summary: User profile Details
+ *    summary: Users list
  *    security:
  *      - Authorization: []
- *    description: Get User profile details
+ *    description: Get User list
  *    tags:
  *      - Users
  *    responses:
  *      '200':
- *        description: User details fetched
+ *        description: User list fetched
  *      '404':
  *        description: User not found
  *      '500':
- *        description: Unable to fetch user profile details
+ *        description: Unable to fetch user details
  */
 router.get("/", getAllUsers);
 

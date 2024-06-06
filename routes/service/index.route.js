@@ -22,6 +22,6 @@ const { getAllServices } = require("../../controllers/service/index.controller")
  *      '500':
  *        description: Unable to fetch user services
  */
-router.get("/", getAllServices);
+router.get("/service", getAllServices);
 
 module.exports = router

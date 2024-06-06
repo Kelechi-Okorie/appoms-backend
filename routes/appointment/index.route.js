@@ -22,6 +22,6 @@ const { getAllAppointments } = require("../../controllers/appointment/index.cont
  *      '500':
  *        description: Unable to fetch user appointments
  */
-router.get("/", getAllAppointments);
+router.get("/appointment", getAllAppointments);
 
 module.exports = router
