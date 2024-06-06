@@ -1,7 +1,7 @@
 const express = require("express");
 var router = express.Router();
 
-const { getAllUsers, getUser, addServicesToUser, addDescription } = require("../../controllers/user/index.controller");
+const { getAllUsers, getUser, addServicesToUser, addDescription, getUserServices } = require("../../controllers/user/index.controller");
 
 //route to fetch user profile details
 /**
@@ -115,5 +115,27 @@ router.post('/add-description', addDescription);
  *        description: Unable to fetch user profile details
  */
 router.get("/:id", getUser);
+
+//route to fetch user services
+/**
+ * @swagger
+ * /api/v1/users/{id}/services:
+ *  get:
+ *    summary: User services
+ *    security:
+ *      - Authorization: []
+ *    description: Get User services
+ *    tags:
+ *      - Users
+ *      - Services
+ *    responses:
+ *      '200':
+ *        description: User services fetched
+ *      '404':
+ *        description: User not found
+ *      '500':
+ *        description: Unable to fetch user profile details
+ */
+router.get("/:id/services", getUserServices);
 
 module.exports = router

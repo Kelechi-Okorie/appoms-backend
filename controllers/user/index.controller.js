@@ -68,11 +68,32 @@ const addDescription = async (req, res) => {
     return sendResponse(payload);
 
   }
-}
+};
+
+const getUserServices = async (req, res) => {
+  try {
+
+    const { query, params } = req;
+
+    const { id } = params;
+
+    const user = await User.findByPk(id);
+    const services = await user.getServices();
+
+    const payload = { status: 200, message: "User services fetched successfully", data: { services }, res };
+    return sendResponse(payload);
+    
+  } catch (err) {
+    console.log(err)
+    const payload = { status: 500, message: "Something wrong happened", data: null, res };
+    return sendResponse(payload);
+  }
+};
 
 module.exports = {
   getAllUsers,
   getUser,
   addServicesToUser,
-  addDescription
+  addDescription,
+  getUserServices
 };
