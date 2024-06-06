@@ -16,6 +16,10 @@ module.exports = (Sequelize) => {
     description: {
       type: DataTypes.TEXT
     },
+    categoryId: {
+      type: DataTypes.INTEGER,
+      references: { model: 'Categories', key: 'id' }
+    },
     isVisible: {
       type: DataTypes.BOOLEAN,
       defaultValue: true

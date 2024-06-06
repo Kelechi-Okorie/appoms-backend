@@ -38,6 +38,13 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
+db.Service.addScope('defaultScope', {
+  include: [
+    {model: db.Category}
+  ]
+});
+
+
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 

@@ -14,7 +14,8 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      this.belongsToMany(models.Service, {through: models.ServiceCategoryJunctionTable});
+      this.belongsToMany(models.User, {through: models.UserCategoryJunctionTable});
+      this.hasMany(models.Service,);
     }
   }
   Category.init(attributes, {

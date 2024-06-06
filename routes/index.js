@@ -17,7 +17,7 @@ router.use('/users', userIndex, profileRoute);
 router.use('/users/messages', messageRoute);
 router.use('/users/appointments', appointmentRoute);
 router.use('/users/projects', projectRoute);
-router.use('/users/services', serviceRoute);
+router.use('/services', serviceRoute);
 router.use('/users/reviews', reviewRoute);
 
 router.use('/categories', categoryRoute);

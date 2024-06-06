@@ -3,10 +3,10 @@ const {
   Model, Sequelize
 } = require('sequelize');
 
-const attributes = require('../bootstrap/servicecategory')(Sequelize);
+const attributes = require('../bootstrap/userservice')(Sequelize);
 
 module.exports = (sequelize, DataTypes) => {
-  class ServiceCategoryJunctionTable extends Model {
+  class UserCategoryJunctionTable extends Model {
     /**
      * Helper method for defining associations.
      * This method is not a part of Sequelize lifecycle.
@@ -16,9 +16,9 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
     }
   }
-  ServiceCategoryJunctionTable.init(attributes, {
+  UserCategoryJunctionTable.init(attributes, {
     sequelize,
-    modelName: 'ServiceCategoryJunctionTable',
+    modelName: 'UserCategoryJunctionTable',
   });
-  return ServiceCategoryJunctionTable;
+  return UserCategoryJunctionTable;
 };

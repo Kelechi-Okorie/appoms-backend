@@ -23,6 +23,7 @@ module.exports = {
     for (let i = 0; i < numServices; i++) {
 
       services.push({
+        categoryId: faker.helpers.arrayElement([1, 2]),
         name: t[i],
         description: 'This is the description for the work',
       });

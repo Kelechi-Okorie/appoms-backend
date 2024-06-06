@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      this.belongsToMany(models.Category, {through: models.UserCategoryJunctionTable})
       this.belongsToMany(models.Service, { through: models.UserServiceJunctionTable });
       this.hasMany(models.Project, { foreignKey: 'ownerId', as: 'owner' });
       this.hasMany(models.Project, { foreignKey: 'clientId', as: 'client' });
