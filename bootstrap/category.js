@@ -16,6 +16,12 @@ module.exports = (Sequelize) => {
     description: {
       type: DataTypes.TEXT
     },
+    createdAt: {
+      type: DataTypes.DATE,
+      set(value) {
+        this.setDataValue('createdAt', new Date());
+      },
+    },
     updatedAt: {
       type: DataTypes.DATE,
       set(value) {

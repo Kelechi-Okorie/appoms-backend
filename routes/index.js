@@ -10,6 +10,7 @@ const appointmentRoute = require('./appointment/index.route');
 const projectRoute = require('./project/index.route');
 const serviceRoute = require('./service/index.route');
 const reviewRoute = require('./review/index.route');
+const categoryRoute = require('./category/index.route');
 
 router.use('/auth', registerRoute, loginRoute);
 router.use('/users', userIndex, profileRoute);
@@ -18,5 +19,7 @@ router.use('/users/appointments', appointmentRoute);
 router.use('/users/projects', projectRoute);
 router.use('/users/services', serviceRoute);
 router.use('/users/reviews', reviewRoute);
+
+router.use('/categories', categoryRoute);
 
 module.exports = router;
