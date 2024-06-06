@@ -30,14 +30,34 @@ const getUser = async (req, res) => {
 
 const addServicesToUser = async (req, res) => {
   try {
-    console.log(req.body, "the bosy ========================");
     const { services, userId } = req.body;
 
     const result = sequelize.transaction(async (t) => {
       const user = await User.findByPk(userId, { transaction: t });
       await user.setServices(services, { transaction: t });
 
-      const payload = { status: 200, message: "Services created successfully", data: { body: req.body }, res };
+      const payload = { status: 200, message: "Services created successfully", data: { user }, res };
+      return sendResponse(payload);
+    });
+
+
+  } catch (err) {
+    console.log(err)
+    const payload = { status: 500, message: "Something wrong happened", data: null, res };
+    return sendResponse(payload);
+
+  }
+}
+
+const addDescription = async (req, res) => {
+  try {
+    const { description, userId } = req.body;
+
+    const result = sequelize.transaction(async (t) => {
+      const user = await User.findByPk(userId, { transaction: t });
+      await user.update({description}, { transaction: t });
+
+      const payload = { status: 200, message: "description successfully", data: { user }, res };
       return sendResponse(payload);
     });
 
@@ -53,5 +73,6 @@ const addServicesToUser = async (req, res) => {
 module.exports = {
   getAllUsers,
   getUser,
-  addServicesToUser
+  addServicesToUser,
+  addDescription
 };
