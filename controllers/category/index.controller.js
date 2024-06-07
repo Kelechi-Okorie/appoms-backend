@@ -35,6 +35,26 @@ const getCategory = async (req, res) => {
   }
 };
 
+const getCategoryServices = async (req, res) => {
+  try {
+
+    const { query, params } = req;
+
+    const { id } = params;
+
+    const category = await Category.findByPk(id);
+    const services = await category.getServices();
+
+    const payload = { status: 200, message: "Category services fetched successfully", data: { services }, res };
+    return sendResponse(payload);
+    
+  } catch (err) {
+    console.log(err)
+    const payload = { status: 500, message: "Something wrong happened", data: null, res };
+    return sendResponse(payload);
+  }
+};
+
 const createNewCategory = async (req, res) => {
 
   try {
@@ -56,5 +76,6 @@ const createNewCategory = async (req, res) => {
 module.exports = {
   getAllCategories,
   getCategory,
-  createNewCategory
+  createNewCategory,
+  getCategoryServices
 };

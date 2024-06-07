@@ -46,6 +46,9 @@ module.exports = (Sequelize) => {
     officeAddress: {
       type: DataTypes.STRING(191)
     },
+    description: {
+      type: DataTypes.STRING
+    },
     lastLoginAt: {
       type: DataTypes.BOOLEAN
     },

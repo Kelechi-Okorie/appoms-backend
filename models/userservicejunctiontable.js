@@ -19,6 +19,7 @@ module.exports = (sequelize, DataTypes) => {
   UserServiceJunctionTable.init(attributes, {
     sequelize,
     modelName: 'UserServiceJunctionTable',
+    timestamps: false
   });
   return UserServiceJunctionTable;
 };
